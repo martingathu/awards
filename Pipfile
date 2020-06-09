@@ -17,6 +17,7 @@ python-decouple = "*"
 dj-database-url = "*"
 django-crispy-forms = "*"
 arrow = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.6"

@@ -18,18 +18,18 @@ class SignUpForm(UserCreationForm):
         model = User
         fields = ('email' ,'username','password1', 'password2', )
 
-class NewProjectForm(forms.ModelForm):
-    class Meta:
-        model = Projects
-        fields = ('title','project_image','caption','project_link')
-        exclude = ['user', 'pub_date']
+# class NewProjectForm(forms.ModelForm):
+#     class Meta:
+#         model = Projects
+#         fields = ('title','project_image','caption','project_link')
+#         exclude = ['user', 'pub_date']
 
-class ProfileForm(forms.ModelForm):
-    class Meta:
-        model = Profile
-        exclude = ['user']
+# class ProfileForm(forms.ModelForm):
+#     class Meta:
+#         model = Profile
+#         exclude = ['user']
 
-class VoteForm(ModelForm):
-    class Meta:
-        model = Projects
-        fields = ('design','usability','content')
+# class VoteForm(ModelForm):
+#     class Meta:
+#         model = Projects
+#         fields = ('design','usability','content')

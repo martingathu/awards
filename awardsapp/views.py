@@ -123,20 +123,20 @@ def update_profile(request):
         args['form'] = form
     return render(request, 'update_profile.html', {'current_user':current_user, 'form':form})
 
-def search_project(request):
-    """
-    Function that searches for projects
-    """
-    if 'username' in request.GET and request.GET["username"]:
-        search_term = request.GET.get("username")
-        searched_profiles = User.objects.filter(username__icontains=search_term)
-        message = f"{search_term}"
-        profiles = User.objects.all()
+# def search_project(request):
+#     """
+#     Function that searches for projects
+#     """
+#     if 'username' in request.GET and request.GET["username"]:
+#         search_term = request.GET.get("username")
+#         searched_profiles = User.objects.filter(username__icontains=search_term)
+#         message = f"{search_term}"
+#         profiles = User.objects.all()
         
-        return render(request, 'search.html', {"message": message, "usernames": searched_profiles, "profiles": profiles, })
+#         return render(request, 'search.html', {"message": message, "usernames": searched_profiles, "profiles": profiles, })
 
-    else:
-        message = "You haven't searched for any term"
-        return render(request, 'search.html', {"message": message})
+#     else:
+#         message = "You haven't searched for any term"
+#         return render(request, 'search.html', {"message": message})
 
 

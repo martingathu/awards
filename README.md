@@ -8,8 +8,7 @@ An application like Awwards that will allow a user to post a project he/she has 
 
 ## Live link
 
-https://.herokuapp.com/
-
+https://awards5app.herokuapp.com/
 ### Prerequsites
     - Python 3.6
     - Django

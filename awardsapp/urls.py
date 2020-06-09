@@ -19,3 +19,5 @@ urlpatterns = [
     url(r'^api/profiles/$', views.ProfileList.as_view(),name='profiles'),
     re_path(r'^api/', views.api, name='api'),
 ]
+if settings.DEBUG:
+    urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

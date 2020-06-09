@@ -24,10 +24,10 @@ class NewProjectForm(forms.ModelForm):
         fields = ('title','project_image','caption','project_link')
         exclude = ['user', 'pub_date']
 
-# class ProfileForm(forms.ModelForm):
-#     class Meta:
-#         model = Profile
-#         exclude = ['user']
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        exclude = ['user']
 
 # class VoteForm(ModelForm):
 #     class Meta:

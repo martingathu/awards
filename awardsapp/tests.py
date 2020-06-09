@@ -11,7 +11,7 @@ class ProjectTestCLass(TestCase):
     setup self instance of project
     '''
     def setUp(self):
-        self.project = Projects( title='award',project_image='/static/images/log.png', caption='awards test', project_link='www.awards.com')
+        self.project = Projects( title='award',project_image='/static/images/log.png', caption='awards test', project_link='www.awards.com', user= '1')
     
     ''' 
     test instance of project

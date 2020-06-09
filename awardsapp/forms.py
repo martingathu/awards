@@ -29,7 +29,3 @@ class ProfileForm(forms.ModelForm):
         model = Profile
         exclude = ['user']
 
-# class VoteForm(ModelForm):
-#     class Meta:
-#         model = Projects
-#         fields = ('design','usability','content')

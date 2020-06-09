@@ -136,7 +136,7 @@ def search_project(request):
         return render(request, 'search.html', {"message": message, "usernames": searched_profiles, "profiles": profiles, })
 
     else:
-        message = "You haven't searched for any term"
+        message = ", no project/user by that name"
         return render(request, 'search.html', {"message": message})
 
 

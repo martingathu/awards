@@ -5,11 +5,11 @@
 
 <div class="container-fluid" style="margin-top: 130px;">
     
-        {% if usernames %}
-        <h2>Found {{ usernames|length }} user(s) with that username {{message}}</h2>
-        {% else %}
-        <h2> Found 0 users for the search term {{message}}</h2>
-        {% endif %}
+    {% if project%}
+    <h2>Found {{ projectlength }} of searched term {{message}}</h2>
+    {% else %}
+    <h2> Found 0 project for the search term {{message}}</h2>
+    {% endif %}
     
       </div>
       <div class="row">

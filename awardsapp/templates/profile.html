@@ -1,0 +1,79 @@
+{%extends 'base.html'%}
+{% load humanize %}
+
+{%block content%}
+{{block.super}}
+{% include 'navbar.html'%}
+<div class="container text-center">
+    <div class="card bg-light" style="margin-top:10%;padding-top: 3%;padding-bottom: 3%;">
+        <div class="row">
+
+            <div class="col-xs-12 col-sm-6 col-md-3">
+                {%if user.profile.profile_photo%}
+                <img class="rounded-circle" src="{{user.profile.profile_photo.url}}" style="height:200px;width: 200px;"
+                    alt="No profile pic">
+                {%else%}
+                <p>No profile picture!</p>
+                {%endif%}
+            </div>
+
+
+            <div class="col-xs-6 col-sm-6 col-md-3">
+                <strong style="font-size:25px;">{{current_user.username | title}}</strong>
+                <a href='/updateprofile' class="btn btn-primary text-white">Edit profile</a>
+                {%if user.profile.bio %}
+                <p style="font-size:23px;"><strong>Bio:</strong> {{user.profile.bio}}</p>
+                {%else%}
+                <p>No bio!</p>
+                {%endif%}
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="row">
+
+        {% for project in projects %}
+        {%if project.user.username == current_user.username%}
+        <div class="col-xs-6 col-sm-6 col-md-4 card" style="padding-top:1%;margin-top:1%;padding-bottom:1%;">
+            <img src="{{project.project_image.url}}" class="img-responsive" alt="Image" style="height:300px;width:100%;"
+                type="button" class="btn btn-sm btn-outline-primary" id="post{{project.id}}" data-whatever="{{project.id}}"
+                data-toggle="modal" data-target="#extraModal{{project.id}}">
+        </div>
+        {%endif%}
+        {% endfor %}
+    </div>
+
+    {% for project in projects %}
+
+    <div class="modal fade" id="extraModal{{project.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable ">
+            <div class="modal-content " style="background-color: #ececec;width:600px;">
+                <div class="modal-header">
+                    <p class="text-center modal-title" id="imagetitle"><strong>By: </strong> {{ project.user.username}} </p>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+    
+                <div class="modal-body" style="text-align:center">
+                    <img style="height: 400px; width: 500px;" id="image" class=" rounded text-center"
+                        src='{{project.project_image.url}}'> </div>
+                        <div class="modal-body" style="text-align:center">
+    
+                    <p1 id="imageCaption">{{ project.caption }}</p1>
+                    
+                </div>
+                <div class="modal-footer">
+                    <a href="{{project.project_link}}" class="btn btn-success" target="_blank">View project</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {%endfor%}
+    
+
+
+</div>
+{%endblock%}

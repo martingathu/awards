@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% block content %}
+{% include 'navbar.html'%}
+
+<div class="container-fluid" style="margin-top: 130px;">
+    
+        {% if usernames %}
+        <h2>Found {{ usernames|length }} user(s) with that username {{message}}</h2>
+        {% else %}
+        <h2> Found 0 users for the search term {{message}}</h2>
+        {% endif %}
+    
+      </div>
+      <div class="row">
+    
+        {% for user in usernames %}
+        <div class="container">
+          <ul class="list-inline">
+            <li class="list-inline-item">
+              <a href="" class="others"><strong class="list-inline"> {{user.username}} </strong>
+              </a>
+            </li>
+          </ul>
+    
+        </div>
+        {% endfor %}
+    
+      </div>
+</div>
+{% endblock %}

@@ -1,12 +1,13 @@
 {%extends 'base.html'%}
+{% load humanize %}
 
 
 {%block content%}
 {% include 'navbar.html'%}
-<div class="container-fluid" style="margin-top: 77px;">
-    <h1 class="text-center" style="font-family: 'Creepster', cursive;">Projects</h1>
-    <div class="row">
-
+<div class="container-fluid">
+    <h2 class="text-center" style="margin-top: 10px;">Featured Projects</h2>
+    <hr>
+    <div class="row">   
         {% for project in projects %}
         {% with go=image.allinfo %}
         <div class="col-xs-6 col-sm-6 col-md-4 card" style="padding-top:1%;margin-top:1%;">
@@ -14,8 +15,8 @@
             <img src="{{project.project_image.url}}" class="img-responsive" alt="Image" style="height:300px;width:100%;"
                 type="button" class="btn btn-sm btn-outline-primary" id="image{{image.id}}" data-whatever="{{image.id}}"
                 data-toggle="modal" data-target="#extraModal{{project.id}}">
-            <h5 class="text-center">Description: {{ project.caption }} </h5>
             <p class="text-center"><strong>By: </strong> {{ project.user.username}} </p>
+            <p style="font-size: 20px;color:gray;">Posted: {{project.pub_date | naturaltime}}</p>
         </div>
         {%endwith%}
         {% empty %}
@@ -43,6 +44,7 @@
                     <div class="modal-body" style="text-align:center">
 
                 <p1 id="imageCaption">{{ project.caption }}</p1>
+                <p style="font-size: 20px;color:gray;text-align:center">Posted: {{project.pub_date | naturaltime}}</p>
                 
             </div>
             <div class="modal-footer">
